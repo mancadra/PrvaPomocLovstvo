@@ -1,7 +1,6 @@
 {
     "questions": [
         {
-            "question_id": "1",
             "question_text": "Katero je pravilno ravnanje v primeru kačjega ugriza (Možnih je več odgovorov)?",
             "num_of_correct_answers": "2",
             "answers": [
@@ -14,7 +13,6 @@
             "correct_answers": [1, 2]
         },
         {
-            "question_id": "1",
             "question_text": "Ali se lahko dotaknemo osebe, ki jo je pravkar zadela strela?",
             "num_of_correct_answers": "1",
             "answers": ["Da.", "Ne."],
