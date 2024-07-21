@@ -1,0 +1,232 @@
+.bimg {
+  display: block;
+  width: 100%;
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.btn-link {
+  color: white;
+}
+
+.one {
+  height: 80vh;
+  width: 100%;
+}
+
+.one .bimg {
+  background-image: url("../../../assets/secOne.jpg");
+}
+
+.three .bimg {
+  background-image: url("../../../assets/secThree.jpg");
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.gradient {
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    #bbbbbb,
+    rgb(0, 0, 0, 0),
+    transparent
+  );
+}
+
+.container-sec-one {
+  height: auto;
+  width: 50vh;
+  padding: 40vh 65% 0 90px;
+}
+
+.container-sec-three {
+  background: rgb(187, 187, 187, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  height: auto;
+  width: auto;
+  max-width: 50vh;
+  padding: 30px 30px 30px 30px;
+  border-radius: 25px;
+}
+
+.container-padding {
+  padding: 30vh 40px 0 40vw;
+}
+
+.four {
+  height: 80vh;
+  width: 100%;
+}
+
+.container-four-padding {
+  padding: 20vh 20px 20px 40px;
+}
+
+.container-text-four {
+  width: 29%;
+  height: 80vh;
+  float: left;
+}
+
+.video {
+  width: 70%;
+  height: 80vh;
+  float: right;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+video {
+  width: 90%;
+  height: auto;
+}
+
+.five .bimg {
+  float: left;
+  width: 50%;
+  background-image: url("../../../assets/secFour.jpg");
+}
+
+.sec-for-text {
+  display: none;
+  height: 0;
+}
+
+.container-sec-five {
+  float: right;
+  width: 49%;
+  height: 80vh;
+}
+
+.con-padd {
+  padding: 40vh 20px 20px 40px;
+}
+
+.five {
+  height: 80vh;
+  display: flex;
+}
+
+//RESPONSIVE DESIGN
+@media (max-width: 750px) {
+  .container-sec-one {
+    padding: 40vh 40px 0 40px;
+    width: auto;
+  }
+
+  .container-padding {
+    padding: 20vh 20px 60px 20px;
+  }
+
+  .container-sec-three {
+    width: auto;
+  }
+
+  .five .bimg {
+    width: 100%;
+  }
+
+  .container-sec-five {
+    display: none;
+  }
+
+  .sec-for-text {
+    display: block;
+    background: rgb(187, 187, 187, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+    height: auto;
+    width: auto;
+    max-width: 90%;
+    padding: 30px 30px 30px 30px;
+    border-radius: 25px;
+    margin: 30% 20px 20px 20px;
+  }
+
+  .section .four {
+    display: flex;
+    flex-direction: row;
+    height: 80vh;
+  }
+
+  .container-text-four {
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
+
+  .container-four-padding {
+    padding: 20px 20px 20px 20px;
+  }
+
+  video {
+    width: 100%;
+    height: auto;
+  }
+  .video {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container-four-padding {
+    padding: 30vh 20px 20px 80px;
+  }
+
+  .video {
+    width: 70%;
+    height: 80vh;
+    float: right;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  video {
+    width: 90%;
+    height: auto;
+  }
+}
+
+@media (min-width: 2000px) {
+  .container-four-padding {
+    padding: 30vh 20px 20px 80px;
+  }
+
+  .video {
+    width: 70%;
+    height: 80vh;
+    float: right;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  video {
+    width: 90%;
+    height: auto;
+  }
+
+  .con-padd {
+    padding: 40vh 20px 20px 160px;
+  }
+}

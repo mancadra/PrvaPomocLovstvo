@@ -1,0 +1,22 @@
+.con-categories {
+  width: 300px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.con-material {
+  padding-top: 5%;
+  width: 100%;
+}
+
+//RESPONSIVE DESIGN
+@media (max-width: 992px) {
+  .container {
+    display: block;
+  }
+}

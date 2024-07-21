@@ -1,0 +1,151 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: visible;
+}
+
+.left-align {
+  margin: 34px 20px 0 105px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.name-wide {
+  display: flex;
+}
+
+.name-narrow {
+  display: none;
+}
+
+.right-align {
+  margin: 46px 20px 0 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+h1 {
+  padding-right: 10px;
+  margin-bottom: 7px;
+}
+
+a {
+  padding-right: 40px;
+}
+
+.lovska-zveza {
+  color: #00704a;
+}
+
+.slovenije {
+  color: #b29d76;
+}
+
+a:hover {
+  color: #9c7936;
+  transition-duration: 0.2s;
+}
+
+.active {
+  color: #9c7936;
+}
+
+.navbar-logo {
+  background-image: url("../../../assets/file.png");
+  width: 90px;
+  height: 120px;
+  position: absolute;
+  bottom: -39px;
+  margin-left: 10px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+li {
+  list-style: none;
+}
+
+.links {
+  display: flex;
+}
+
+.toggle-btn {
+  color: #bbbbbb;
+  scale: 120%;
+  cursor: pointer;
+  display: none;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 1rem;
+  height: 0;
+  background: rgb(187, 187, 187, 0.2);
+  border-radius: 10px;
+  top: 80px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown-menu.open {
+  height: auto;
+  padding: 10px;
+}
+
+//RESPONSIVE DESIGN
+@media (max-width: 992px) {
+  .links {
+    display: none;
+  }
+
+  .toggle-btn {
+    display: block;
+  }
+
+  .dropdown-menu {
+    display: block;
+  }
+}
+
+@media (max-width: 500px) {
+  .links {
+    display: none;
+  }
+
+  .toggle-btn {
+    display: block;
+  }
+
+  .dropdown-menu {
+    display: block;
+  }
+
+  .name-narrow {
+    display: flex;
+  }
+
+  .name-wide {
+    display: none;
+  }
+
+  h1 {
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 2000px) {
+  .navbar-logo {
+    width: 120px;
+    height: 160px;
+    bottom: -52px;
+  }
+
+  .left-align {
+    margin: 44px 20px 0 135px;
+  }
+}

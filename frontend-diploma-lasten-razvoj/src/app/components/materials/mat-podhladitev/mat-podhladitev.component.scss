@@ -1,0 +1,62 @@
+.container {
+  width: 60%;
+  padding: 10%;
+  padding-top: 5%;
+  background: rgb(187, 187, 187, 0.2);
+  border-radius: 30px;
+  margin: auto;
+  font-family: "Calibri", sans-serif;
+  font-size: 16px;
+
+  .title-large {
+    margin: 0 0 8pt 0;
+    font-size: 24px;
+    line-height: 107%;
+  }
+
+  .spacer {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 8pt;
+    margin-left: 36pt;
+    font-size: 11pt;
+    line-height: 107%;
+  }
+
+  .description {
+    margin: 0 0 8pt 0;
+    font-size: 16px;
+    line-height: 107%;
+  }
+
+  .steps {
+    list-style-type: decimal;
+
+    li {
+      font-size: 16px;
+      line-height: 107%;
+    }
+  }
+}
+
+//RESPONSIVE DESIGN
+@media (max-width: 992px) {
+  .container {
+    width: 90%;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .container {
+    font-size: 18px;
+
+    .title-large {
+      font-size: 27px;
+    }
+    .description,
+    li {
+      font-size: 20px;
+    }
+  }
+}

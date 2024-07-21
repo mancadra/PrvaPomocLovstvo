@@ -1,0 +1,52 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Questions</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="questions$()">
+      <ng-container matColumnDef="col-question-text">
+        <th mat-header-cell *matHeaderCellDef>Question text</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="col-nr-correct-answers">
+        <th mat-header-cell *matHeaderCellDef>Nr. of correct answers</th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      </ng-container>
+      <ng-container matColumnDef="col-answers">
+        <th mat-header-cell *matHeaderCellDef>Answers</th>
+        <td mat-cell *matCellDef="let element">{{ element.level }}</td>
+      </ng-container>
+      <ng-container matColumnDef="col-category">
+        <th mat-header-cell *matHeaderCellDef>Category</th>
+        <td mat-cell *matCellDef="let element">{{ element.level }}</td>
+      </ng-container>
+      <ng-container matColumnDef="col-correct-answers">
+        <th mat-header-cell *matHeaderCellDef>Correct anwers</th>
+        <td mat-cell *matCellDef="let element">{{ element.level }}</td>
+      </ng-container>
+      <ng-container matColumnDef="col-action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button [routerLink]="['edit/', element._id]">
+            Edit
+          </button>
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="deleteQuestion(element._id || '')"
+          >
+            Delete
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" [routerLink]="['new']">
+      Add a New Question
+    </button>
+  </mat-card-actions>
+</mat-card>
