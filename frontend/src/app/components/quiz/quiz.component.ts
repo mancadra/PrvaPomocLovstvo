@@ -5,29 +5,43 @@ import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { ChangeBgModule } from '../../change-bg.module';
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
-  imports: [RouterModule, MatTableModule, MatButtonModule, MatCardModule],
+  imports: [
+    RouterModule,
+    MatTableModule,
+    MatButtonModule,
+    MatCardModule,
+    NgIf,
+    CommonModule,
+    ChangeBgModule,
+  ],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss',
 })
 export class QuizComponent implements OnInit {
-  questions$ = {} as WritableSignal<Question[]>;
-  displayedColumns: string[] = [
-    'col-question-text',
-    'col-nr-correct-answers',
-    'col-answers',
-    'col-category',
-    'col-correct-answers',
-    'col-action',
-  ];
-
+  questions: Question[] = [];
+  public currentQuestion: number = 0;
+  public points: number = 0;
+  correctAnswers: number = 0;
+  inCorrectAnswer: number = 0;
+  percents: number = 0;
+  intervals$: any;
+  progress: string = '0';
+  isClosed: boolean = false;
+  public answerCorrect: boolean = false;
   constructor(private questionService: QuestionService) {}
 
   ngOnInit() {
-    this.fetchQuestions();
+    this.questionService.getQuestions().subscribe((questions) => {
+      this.questions = questions;
+      console.log(questions);
+    });
   }
 
   deleteQuestion(id: string): void {
@@ -37,7 +51,25 @@ export class QuizComponent implements OnInit {
   }
 
   private fetchQuestions(): void {
-    this.questions$ = this.questionService.questions$;
-    this.questionService.getQuestions();
+    this.questionService.getQuestions().subscribe((questions) => {
+      this.questions = questions;
+    });
+  }
+
+  nextQuestion() {
+    this.currentQuestion++;
+  }
+
+  previousQuestion() {
+    this.currentQuestion--;
+  }
+
+  answerClicked(questionIx: number, option: any) {
+    if (questionIx === this.questions.length) this.isClosed = true;
+  }
+
+  getPercents() {
+    this.percents = (this.points * 100) / this.questions.length;
+    return this.percents;
   }
 }

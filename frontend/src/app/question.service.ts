@@ -8,31 +8,16 @@ import { signal } from '@angular/core';
 })
 export class QuestionService {
   private url = 'http://localhost:5200';
-  questions$ = signal<Question[]>([]);
-  question$ = signal<Question>({} as Question);
+  questions: Question[] = [];
 
   constructor(private httpClient: HttpClient) {}
 
-  private refreshQuestions() {
-    this.httpClient
-      .get<Question[]>(`${this.url}/kviz`)
-      .subscribe((questions) => {
-        this.questions$.set(questions);
-      });
-  }
-
   getQuestions() {
-    this.refreshQuestions();
-    return this.questions$();
+    return this.httpClient.get<Question[]>(`${this.url}/kviz`);
   }
 
   getQuestion(id: string) {
-    this.httpClient
-      .get<Question>(`${this.url}/kviz/${id}`)
-      .subscribe((question) => {
-        this.question$.set(question);
-        return this.question$();
-      });
+    return this.httpClient.get<Question>(`${this.url}/kviz/${id}`);
   }
 
   createQuestion(question: Question) {

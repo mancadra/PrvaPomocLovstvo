@@ -1,3 +1,13 @@
+# Backend
+
+To run backend go into directory server and run npx ts-node src/server.ts
+The server will be running on port 5200
+
+# Frontend
+
+To run the frontend go into directory frontend and run ng serve
+The server will be running on port 4200
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
