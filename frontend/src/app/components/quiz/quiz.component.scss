@@ -1,3 +1,62 @@
 .container {
-  color: black;
+  width: 60%;
+  margin: auto;
+  font-family: "Calibri", sans-serif;
+  font-size: 16px;
+}
+
+.card {
+  background: rgb(187, 187, 187, 0.2);
+  margin: 10%;
+  padding: 5% 10%;
+  border-radius: 30px;
+}
+
+.card-answer {
+  background-color: white;
+  margin: 3%;
+  padding: 15px 35px;
+  border-radius: 15px;
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+.back-next {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+
+.btn-back-next {
+  margin: 0 10px
+}
+
+button {
+  padding: 5px 15px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.results {
+  text-align: center;
+}
+
+.question-card {
+  display: flex;
+  flex-direction: row;
+}
+
+
+//RESPONSIVE DESIGN
+@media (max-width: 992px) {
+  .container {
+    width: 90%;
+    font-size: 18px;
+  }
 }

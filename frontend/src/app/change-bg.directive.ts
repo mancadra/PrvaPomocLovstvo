@@ -14,13 +14,11 @@ export class ChangeBgDirective {
   constructor(private el: ElementRef, private render: Renderer2) {}
   @HostListener('click') answer() {
     if (this.isCorrect) {
-      this.render.setStyle(this.el.nativeElement, 'background', 'green');
-      this.render.setStyle(this.el.nativeElement, 'color', '#fff');
-      this.render.setStyle(this.el.nativeElement, 'border', '2px solid grey');
+      this.render.setStyle(this.el.nativeElement, 'border', '4px solid #0B7B09');
+      this.render.setStyle(this.el.nativeElement, 'padding', '11px 31px');
     } else {
-      this.render.setStyle(this.el.nativeElement, 'background', 'red');
-      this.render.setStyle(this.el.nativeElement, 'color', '#fff');
-      this.render.setStyle(this.el.nativeElement, 'border', '2px solid grey');
+      this.render.setStyle(this.el.nativeElement, 'border', '4px solid #D8401F');
+      this.render.setStyle(this.el.nativeElement, 'padding', '11px 31px');
     }
   }
 }

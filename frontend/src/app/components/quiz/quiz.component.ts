@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { NgIf } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { ChangeBgModule } from '../../change-bg.module';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-quiz',
@@ -30,12 +31,12 @@ export class QuizComponent implements OnInit {
   public points: number = 0;
   correctAnswers: number = 0;
   inCorrectAnswer: number = 0;
-  percents: number = 0;
+  public percents: number = 0;
   intervals$: any;
   progress: string = '0';
   isClosed: boolean = false;
-  public answerCorrect: boolean = false;
-  constructor(private questionService: QuestionService) {}
+  public nrCorrectAnswers = 0; // meant for the querstions with multiple choices
+  constructor(private questionService: QuestionService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.questionService.getQuestions().subscribe((questions) => {
@@ -57,19 +58,50 @@ export class QuizComponent implements OnInit {
   }
 
   nextQuestion() {
+    if (this.currentQuestion === this.questions.length) {
+      this.percents = (this.points * 100) / this.questions.length;
+      this.isClosed = true;
+      this.cdr.detectChanges();
+    }
+    if (this.nrCorrectAnswers == this.questions[this.currentQuestion].num_of_correct_answers) {
+      console.log("Moved to another question", )
+      this.points++;
+      this.correctAnswers++;
+    }
     this.currentQuestion++;
+    this.nrCorrectAnswers = 0;
+    console.log(this.points)
   }
 
   previousQuestion() {
+    if (this.nrCorrectAnswers == this.questions[this.currentQuestion].num_of_correct_answers) {
+      console.log("Moved to another question", )
+      this.points++;
+      this.correctAnswers++;
+    }
     this.currentQuestion--;
+    this.nrCorrectAnswers = 0;
+    console.log(this.points)
   }
 
-  answerClicked(questionIx: number, option: any) {
-    if (questionIx === this.questions.length) this.isClosed = true;
+  answerClicked(answerIx: number, option: any) {
+    if (this.questions[this.currentQuestion].correct_answers.includes(option)) {
+      this.nrCorrectAnswers++;
+      console.log(this.nrCorrectAnswers)
+    }
   }
 
-  getPercents() {
-    this.percents = (this.points * 100) / this.questions.length;
-    return this.percents;
+  resetQuiz() {
+    this.currentQuestion = 0;
+    this.points = 0;
+    this.correctAnswers = 0;
+    this.inCorrectAnswer = 0;
+    this.percents = 0;
+    this.progress = '0';
+    this.nrCorrectAnswers = 0; // meant for the querstions with multiple choices
+  }
+
+  detectChanges() {
+    this.cdr.detectChanges();
   }
 }

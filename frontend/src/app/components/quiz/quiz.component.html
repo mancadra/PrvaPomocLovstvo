@@ -1,10 +1,29 @@
 <div class="container">
   <div class="card">
     <ng-container *ngIf="!isClosed">
-      <div class="points">
-        <h3>Točke: {{ points }}</h3>
-      </div>
 
+      <div class="question">
+        <div class="question-card">
+          <p>{{currentQuestion + 1}}. {{ questions[currentQuestion].question_text }}</p>
+        </div>
+      </div>
+      <div class="answers">
+        <ol
+          *ngFor="let answer of questions[currentQuestion]?.answers; index as i"
+        >
+          <li (click)="answerClicked(currentQuestion + 1, i)">
+            <div
+              appChangeBg
+              [isCorrect]="
+                questions[currentQuestion].correct_answers.includes(i)
+              "
+              class="card-answer"
+            >
+              {{ answer }}
+            </div>
+          </li>
+        </ol>
+      </div>
       <div class="progress mb-3">
         <div
           class="progress-bar progress-bar-striped bg-success"
@@ -14,28 +33,6 @@
           aria-valuemin="0"
           aria-valuemax="100"
         ></div>
-      </div>
-      <div class="question">
-        <div class="question-card">
-          <p>{{ questions[currentQuestion].question_text }}</p>
-        </div>
-      </div>
-      <div class="answers">
-        <ol
-          *ngFor="let answer of questions[currentQuestion]?.answers; index as i"
-        >
-          <li (click)="answerClicked(currentQuestion + 1, answer)">
-            <div
-              appChangeBg
-              [isCorrect]="
-                questions[currentQuestion].correct_answers.includes(i)
-              "
-              class="card"
-            >
-              {{ answer }}
-            </div>
-          </li>
-        </ol>
       </div>
       <div class="back-next">
         <button
@@ -54,12 +51,14 @@
 
     <ng-container *ngIf="isClosed">
       <div class="con-results">
+        <h2>Kviz končan!</h2>
+        <hr/>
         <div class="results">
-          <h2>Kviz končan!</h2>
-          <p>Vaš rezultat je:</p>
-          <p>{{ percents }}%</p>
-          <p>{{ points }} / {{ questions.length }}</p>
-        </div>
+            <p>Vaš rezultat je:</p>
+
+            <p>{{ percents }}%</p>
+            <p>{{ points }} / {{ questions.length }}</p>
+          </div>
       </div>
     </ng-container>
   </div>
