@@ -29,6 +29,12 @@
     line-height: 107%;
   }
 
+  .description {
+    margin: 0 0 8pt 0;
+    font-size: 16px;
+    line-height: 107%;
+  }
+
   .steps {
     list-style-type: decimal;
     font-size: 16px;
@@ -61,6 +67,11 @@
       font-size: 27px;
     }
     .steps {
+      font-size: 20px;
+    }
+
+    .description,
+    li {
       font-size: 20px;
     }
   }

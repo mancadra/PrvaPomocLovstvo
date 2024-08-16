@@ -1,7 +1,7 @@
 .bimg {
   display: block;
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -12,13 +12,80 @@
 }
 
 .one {
-  height: 80vh;
+  height: 90vh;
   width: 100%;
 }
 
 .one .bimg {
   background-image: url("../../../assets/secOne.jpg");
 }
+
+.two .bimg {
+  background-image: url("../../../assets/secTwo2.jpg");
+  float: right;
+  width: 50%;
+}
+
+.container-sec-two {
+  float: left;
+  width: 50%;
+  height: 90vh;
+  background: #503b26;
+  color: white;
+}
+
+.two .con-padd {
+  width: 60%;
+  padding: 40vh 20px 60px 15%;
+}
+
+.bold {
+  margin: 0;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.two {
+  height: 90vh;
+  display: flex;
+}
+
+.img-con {
+  height: 90vh;
+  //display: flex;
+  width: 50%;
+  float: left;
+}
+
+.six .bimg {
+  background-image: url("../../../assets/secSix2.jpg");
+  height: 60%;
+  float: left;
+  /*width: 50%;
+  height: auto;*/
+  margin: 20vh 10% 0 10%;
+}
+
+.container-sec-six {
+  float: right;
+  width: 50%;
+  height: 90vh;
+}
+
+.six {
+ .con-padd {
+    width: 60%;
+    padding: 20vh 15% 60px 20%;
+  }
+}
+
+.six {
+  height: 90vh;
+  display: flex;
+  background: #b29d76;
+  color: white;
+}
+
 
 .three .bimg {
   background-image: url("../../../assets/secThree.jpg");
@@ -63,23 +130,25 @@
 }
 
 .four {
-  height: 80vh;
+  height: 90vh;
   width: 100%;
+  background: #503b26;
+  color: white;
 }
 
 .container-four-padding {
-  padding: 20vh 20px 20px 40px;
+  padding: 40vh 20px 20px 40px;
 }
 
 .container-text-four {
-  width: 29%;
-  height: 80vh;
+  width: 30%;
+  height: 90vh;
   float: left;
 }
 
 .video {
   width: 70%;
-  height: 80vh;
+  height: 90vh;
   float: right;
   margin: auto;
   display: flex;
@@ -94,7 +163,7 @@ video {
 
 .five .bimg {
   float: left;
-  width: 50%;
+  width: 60%;
   background-image: url("../../../assets/secFour.jpg");
 }
 
@@ -105,16 +174,16 @@ video {
 
 .container-sec-five {
   float: right;
-  width: 49%;
-  height: 80vh;
+  width: 40%;
+  height: 90vh;
 }
 
-.con-padd {
-  padding: 40vh 20px 20px 40px;
+.five .con-padd {
+  padding: 40vh 20px 20px 20%;
 }
 
 .five {
-  height: 80vh;
+  height: 90vh;
   display: flex;
 }
 
@@ -127,6 +196,40 @@ video {
 
   .container-padding {
     padding: 20vh 20px 60px 20px;
+  }
+
+  .container-sec-two {
+    width: 100%;
+  }
+
+  .two .bimg {
+    display: none;
+  }
+
+  .two {
+    .con-padd {
+      width: 60%;
+      padding: 40vh 20px 60px 15%;
+    }
+  }
+
+  .container-sec-six {
+    width: 100%;
+  }
+
+  .six .bimg {
+    display: none;
+  }
+
+  .six {
+    .con-padd {
+      width: 60%;
+      padding: 5vh 20px 60px 15%;
+    }
+  }
+
+  .img-con {
+    display: none;
   }
 
   .container-sec-three {
@@ -157,13 +260,14 @@ video {
   .section .four {
     display: flex;
     flex-direction: row;
-    height: 80vh;
+    height: 90vh;
   }
 
   .container-text-four {
     width: 100%;
     height: auto;
     text-align: center;
+    margin-top: 10%;
   }
 
   .container-four-padding {
@@ -192,7 +296,7 @@ video {
 
   .video {
     width: 70%;
-    height: 80vh;
+    height: 90vh;
     float: right;
     margin: auto;
     display: flex;
@@ -213,7 +317,7 @@ video {
 
   .video {
     width: 70%;
-    height: 80vh;
+    height: 90vh;
     float: right;
     margin: auto;
     display: flex;
@@ -226,7 +330,7 @@ video {
     height: auto;
   }
 
-  .con-padd {
+  .five .con-padd {
     padding: 40vh 20px 20px 160px;
   }
 }

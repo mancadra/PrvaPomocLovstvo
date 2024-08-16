@@ -15,6 +15,10 @@ a:hover {
   color: #9c7936;
 }
 
+a {
+  color: white;
+}
+
 .con-expander {
   margin-top: 40px;
   margin-left: 20px;
@@ -25,10 +29,12 @@ a:hover {
 .links {
   display: block;
   height: auto;
-  background: rgb(187, 187, 187, 0.2);
+  //background: rgb(187, 187, 187, 0.2);
+  background: #b29d76;
   backdrop-filter: blur(10px);
   border-radius: 10px;
   padding: 20px;
+  margin: 0;
   max-width: 250px;
 }
 
@@ -43,7 +49,8 @@ a:hover {
   display: none;
   padding: 20px;
   max-width: 250px;
-  background: rgb(187, 187, 187, 0.2);
+  //background: rgb(187, 187, 187, 0.2);
+  background: #b29d76;
   border-radius: 10px;
   backdrop-filter: blur(10px);
   overflow: hidden;

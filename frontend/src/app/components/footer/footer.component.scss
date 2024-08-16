@@ -81,6 +81,10 @@ i {
     display: block;
   }
 
+  .left-align {
+    justify-content: center;
+  }
+
   .footer-contact,
   .footer-address {
     text-align: center;
@@ -89,7 +93,7 @@ i {
   }
 
   .footer-socials {
-    margin-top: 10px;
+    margin: 20px 20%;
     padding: 30px;
   }
 
@@ -100,12 +104,8 @@ i {
   }
 
   .footer-logo {
-    background-image: url("../../../assets/logo.svg");
-    width: 60px;
-    height: 90px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    width: 40px;
+    height: 70px;
     margin-left: 10px;
   }
 
