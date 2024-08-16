@@ -49,6 +49,16 @@
       font-size: 16px;
     }
   }
+
+  .img {
+    display: block;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../../../../assets/droge.jpg");
+    height:250px;
+  }
 }
 
 //RESPONSIVE DESIGN

@@ -21,6 +21,16 @@
     }
   }
 
+  .img {
+    display: block;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../../../../assets/alkohol.jpg");
+    height:250px;
+  }
+
   .spacer {
     margin-top: 0;
     margin-right: 0;
