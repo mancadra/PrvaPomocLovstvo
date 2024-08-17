@@ -49,17 +49,44 @@ li {
 }
 
 .true-answer {
-  background: green;
+  background: #ecffd7;
+  margin: 3%;
+  padding: 15px 35px;
+  border-radius: 15px;
 }
 
 .false-answer {
-  background: red;
+  background: #fbdbd4;
+  margin: 3%;
+  padding: 15px 35px;
+  border-radius: 15px;
+}
+
+.li-question {
+  padding: 20px 0 30px 0;
+}
+
+.question {
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.points {
+  margin: 0;
+  white-space: nowrap;
+  align-items: flex-start;
 }
 
 //RESPONSIVE DESIGN
 @media (max-width: 992px) {
   .container {
-    width: 90%;
+    width: 100%;
     font-size: 18px;
+  }
+
+  .card {
+    margin: 15% 5%;
   }
 }

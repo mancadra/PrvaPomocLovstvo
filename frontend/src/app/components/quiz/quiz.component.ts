@@ -1,4 +1,4 @@
-import { Component, OnInit, WritableSignal } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Question } from '../../question';
 import { QuestionService } from '../../question.service';
 import { RouterModule } from '@angular/router';
@@ -41,6 +41,7 @@ export class QuizComponent implements OnInit {
   progress: string = '0';
   isClosed: boolean = false;
   showHistory: boolean = false;
+  currentQuestionPoints: number = 0;
   public nrCorrectAnswers = 0; // meant for the querstions with multiple choices
   constructor(
     private questionService: QuestionService,
@@ -86,20 +87,22 @@ export class QuizComponent implements OnInit {
   }
 
   nextQuestion() {
+    console.log("Selected answers: ", this.selectedAnswers, this.questions[this.currentQuestion].correct_answers);
+
+    if (this.isCorrectAnswer(this.questions[this.currentQuestion].correct_answers)) {
+      console.log('Correct answer');
+      this.points++;
+      this.currentQuestionPoints = 1;
+      this.correctAnswers++;
+      this.percents = (this.points * 100) / this.questions.length;
+      this.percents = parseFloat(this.percents.toFixed(2))   ;
+    }
     this.setQuestionHistory(this.currentQuestion, this.selectedAnswers);
     if (this.currentQuestion + 1 === this.questions.length) {
       this.saveQuizHistory();
-      this.percents = (this.points * 100) / this.questions.length;
       this.isClosed = true;
     }
-    if (
-      this.nrCorrectAnswers ==
-      this.questions[this.currentQuestion].num_of_correct_answers
-    ) {
-      console.log('Moved to another question');
-      this.points++;
-      this.correctAnswers++;
-    }
+    this.currentQuestionPoints = 0;
     this.selectedAnswers = [];
     this.currentQuestion++;
     this.nrCorrectAnswers = 0;
@@ -121,10 +124,12 @@ export class QuizComponent implements OnInit {
   }
 
   answerClicked(option: any) {
-    this.selectedAnswers.push(option);
-    if (this.questions[this.currentQuestion].correct_answers.includes(option)) {
-      this.nrCorrectAnswers++;
-      console.log(this.nrCorrectAnswers);
+    const index = this.selectedAnswers.indexOf(option);
+
+    if (index === -1) {
+      this.selectedAnswers.push(option);
+    } else {
+      this.selectedAnswers.splice(index, 1);
     }
   }
 
@@ -151,23 +156,51 @@ export class QuizComponent implements OnInit {
     return false;
   }
 
+  isCorrectAnswer(correct_answers: number[]) {
+    if (this.selectedAnswers.length != correct_answers.length) return false;
+    for (let i = 0; i < this.selectedAnswers.length; i++) {
+      if (!correct_answers.includes(this.selectedAnswers[i])) return false;
+    }
+    return true;
+  }
+
   setQuestionHistory(ix: number, selectedOption: any) {
     const questionHistory = {
       question_text: this.questions[ix].question_text,
       selected_answers: selectedOption,
       answers: this.questions[ix].answers,
       correct_answers: this.questions[ix].correct_answers,
+      question_points: this.currentQuestionPoints,
     };
     console.log('QuestionHistory: ', questionHistory);
     this.quizHistory[ix] = questionHistory;
   }
 
+  getDate() {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const day = String(currentDate.getDate()).padStart(2, '0');
+
+    const formattedDate = `${day}. ${month}. ${year}`;
+    console.log("DATUM: ", formattedDate);
+    return formattedDate;
+  }
+
   saveQuizHistory() {
+    //localStorage.removeItem('quizzesHistory');
     localStorage.setItem('quizHistory', JSON.stringify(this.quizHistory));
+
+    const fullQuizHistory = {
+      quiz: this.quizHistory,
+      points: this.points,
+      percents: this.percents,
+      date: this.getDate(),
+    };
 
     const existingHistory = localStorage.getItem('quizzesHistory');
     let quizzesHistory = existingHistory ? JSON.parse(existingHistory) : [];
-    quizzesHistory.push(this.quizHistory);
+    quizzesHistory.push(fullQuizHistory);
     localStorage.setItem('quizzesHistory', JSON.stringify(quizzesHistory));
   }
 

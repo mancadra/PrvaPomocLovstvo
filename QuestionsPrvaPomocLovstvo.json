@@ -1,23 +1,435 @@
-{
-    "questions": [
-        {
-            "question_text": "Katero je pravilno ravnanje v primeru kačjega ugriza (Možnih je več odgovorov)?",
-            "num_of_correct_answers": "2",
-            "answers": [
-                "Poškodovani se mora nujno razgibavati",
-                "Poškodovanec mora mirovati.",
-                "Poškodovancu odstranimo uro, zapestnice, prstane in drugo zlatnino.",
-                "Naredimo Esmarchovo obvezo."
-            ],
-            "categoryId": "4",
-            "correct_answers": [1, 2]
-        },
-        {
-            "question_text": "Ali se lahko dotaknemo osebe, ki jo je pravkar zadela strela?",
-            "num_of_correct_answers": "1",
-            "answers": ["Da.", "Ne."],
-            "categoryId": "4",
-            "correct_answers": [0]
-        }
-    ]
-}
+[
+    {
+      "question_text": "Katere so značilnosti blage podhladitve?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Nezavest, plitko dihanje",
+        "Drgetanje in vznemirjenost",
+        "Otopelost, počasno dihanje",
+        "Omedlevica, hladen znoj"
+      ],
+      "categoryId": "1",
+      "correct_answers": [1]
+    },
+    {
+      "question_text": "Kako ravnamo pri zmerni podhladitvi? (Možnih več odgovorov)",
+      "num_of_correct_answers": "2",
+      "answers": [
+        "Spodbujamo gibanje in telovadbo",
+        "Zaščitimo pred mrazom",
+        "Osebo premikamo čim večkrat",
+        "Ponudimo vroč sladkan čaj"
+      ],
+      "categoryId": "1",
+      "correct_answers": [1, 3]
+    },
+    {
+      "question_text": "Kako naj preverimo stanje osebe s hudo podhladitvijo?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Spremljamo dihanje in bitje srca 5 sekund",
+        "Za nadzor uporabimo merilnik telesne temperature",
+        "Opazujemo, če oseba drgeta",
+        "Spremljamo dihanje in bitje srca vsaj 30-45 sekund"
+      ],
+      "categoryId": "1",
+      "correct_answers": [3]
+    },
+    {
+      "question_text": "Katere ukrepe izvajamo pri hudi podhladitvi? (Možnih več odgovorov)",
+      "num_of_correct_answers": "2",
+      "answers": [
+        "Osebo namestimo v stabilni bočni položaj",
+        "Osebo takoj premikamo na toplo",
+        "Nadziramo bitje srca in dihanje",
+        "Ponudimo vroč sladkan čaj"
+      ],
+      "categoryId": "1",
+      "correct_answers": [0, 2]
+    },
+    {
+      "question_text": "Kako zaščitimo podhlajeno osebo pred mrazom? (Možnih več odgovorov)",
+      "num_of_correct_answers": "3",
+      "answers": [
+        "Slečemo mokra oblačila",
+        "Položimo grelne obloge na trup",
+        "Oblečemo osebo v topla in suha oblačila",
+        "Rano sterilno obvežemo"
+      ],
+      "categoryId": "1",
+      "correct_answers": [0, 1, 2]
+    },
+    {
+      "question_text": "Kaj storimo, če podhlajena oseba ni zmožna požiranja?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Ponudimo tekočine zelo počasi",
+        "Ne ponujamo tekočin, da preprečimo zadušitev",
+        "Ponudimo vročo kavo",
+        "Osebo premikamo, da spodbudimo kroženje"
+      ],
+      "categoryId": "1",
+      "correct_answers": [1]
+    },
+    {
+      "question_text": "Katero je pravilno ravnanje v primeru pretiranega zaužitja alkohola? (Možnih več odgovorov)",
+      "num_of_correct_answers": "3",
+      "answers": [
+        "Postavimo osebo v stabilni bočni položaj",
+        "Pokličemo strokovno pomoč",
+        "Umirimo zastrupljenca in pokrijemo z odejo",
+        "Ponudimo več tekočine, da se oseba prečisti"
+      ],
+      "categoryId": "2",
+      "correct_answers": [0, 1, 2]
+    },
+    {
+      "question_text": "Kako naj ravnamo, če je zastrupljenec nemiren ali agresiven?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Osebo pustimo pri miru",
+        "Pomirimo osebo in preprečimo, da bi se poškodovala",
+        "Ponudimo tekočine",
+        "Povečamo prostor okoli njega"
+      ],
+      "categoryId": "2",
+      "correct_answers": [1]
+    },
+    {
+      "question_text": "Kako zaščitimo osebo, ki je pod vplivom alkohola, pred podhladitvijo?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Osebo premikamo na toplo mesto",
+        "Osebo pokrijemo z odejo",
+        "Ponudimo vroč čaj",
+        "Osebo hladimo z vodo"
+      ],
+      "categoryId": "2",
+      "correct_answers": [1]
+    },
+    {
+      "question_text": "Kaj naredimo z embalažo ali ostanki zaužite tekočine pri zastrupitvi z alkoholom?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Takoj zavržemo",
+        "Shranjujemo za morebitno identifikacijo",
+        "Zamrznemo za kasnejšo analizo",
+        "Zavijemo v sterilno gazo"
+      ],
+      "categoryId": "2",
+      "correct_answers": [1]
+    },
+    {
+      "question_text": "Kaj storimo v primeru, da oseba po zaužitju alkohola izgubi zavest?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Pustimo osebo na hrbtu",
+        "Postavimo osebo v stabilni bočni položaj",
+        "Osebo premikamo, da se zbudi",
+        "Zatiskamo nos osebi, da se zbudi"
+      ],
+      "categoryId": "2",
+      "correct_answers": [1]
+    },
+    {
+      "question_text": "Kako ukrepamo, če osebo zadene strela? (Možnih več odgovorov)",
+      "num_of_correct_answers": "3",
+      "answers": [
+        "Pokličemo pomoč",
+        "Izogibamo se dotikanja osebe, saj je še vedno pod napetostjo",
+        "Opravimo osnovni pregled poškodovanca",
+        "Poškodovanca prenesemo na varno mesto"
+      ],
+      "categoryId": "3",
+      "correct_answers": [0, 2, 3]
+    },
+    {
+      "question_text": "Kaj storimo, če oseba po udaru strele ne kaže znakov življenja?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Osebo postavimo v stabilni bočni položaj",
+        "Pričnemo s temeljnimi postopki oživljanja",
+        "Osebo pustimo na miru",
+        "Poškodovanca prenesemo na varno"
+      ],
+      "categoryId": "3",
+      "correct_answers": [1]
+    },
+    {
+      "question_text": "Kako ravnamo z opeklinami, ki jih povzroči udar strele?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Hladimo jih s hladno tekočo vodo",
+        "Pokrijemo z odejo",
+        "Pustimo jih odprte",
+        "Namažemo jih z oljem"
+      ],
+      "categoryId": "3",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Katero dejanje je potrebno opraviti pred prenosom poškodovanca po udaru strele?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Odstranimo oblačila, ki niso prilepljena na rano",
+        "Pustimo poškodovanca pri miru",
+        "Namestimo poškodovanca v vozilo",
+        "Pokrijemo z odejo"
+      ],
+      "categoryId": "3",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Ali se lahko dotaknemo osebe, ki jo je pravkar zadela strela?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Ne, saj je še vedno pod napetostjo",
+        "Da, saj nima električnega naboja",
+        "Ne, saj se lahko strela ponovi",
+        "Da, vendar le z zaščitnimi rokavicami"
+      ],
+      "categoryId": "3",
+      "correct_answers": [1]
+    },
+    {
+      "question_text": "Kaj je ključno pri nudenju prve pomoči pri ugriznih ranah?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Natančen pregled rane in ustavitev krvavitve",
+        "Premik poškodovanca",
+        "Pitje tekočin",
+        "Neposredno izpiranje z alkoholom"
+      ],
+      "categoryId": "4",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Kaj naredimo z ugrizno rano po temeljitem izpiranju?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Pustimo odprto na zraku",
+        "Pokrijemo s sterilno gazo in pritrdimo",
+        "Povijemo s povojem brez sterilne gaze",
+        "Pokrijemo z aluminijasto folijo"
+      ],
+      "categoryId": "4",
+      "correct_answers": [1]
+    },
+    {
+      "question_text": "Kako ravnamo pri ugrizni rani, če rana močno krvavi?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Pritiskamo direktno na rano preko sterilne gaze",
+        "Povijemo rano brez pritiska",
+        "Pustimo, da krvavi",
+        "Namestimo povoj brez sterilne gaze"
+      ],
+      "categoryId": "4",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Kako imobiliziramo ranjeni del telesa pri ugrizni rani?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Z uporabo povojne mreže",
+        "S trikotno ruto ali povojem",
+        "S trakom",
+        "Z uporabo oblačil"
+      ],
+      "categoryId": "4",
+      "correct_answers": [1]
+    },
+    {
+      "question_text": "Kako spremljamo stanje poškodovanca pri ugrizni rani?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Poškodovanca pustimo pri miru",
+        "Pogovarjamo se in ga spodbujamo",
+        "Opazujemo iz razdalje",
+        "Neposredno spremljamo brez komunikacije"
+      ],
+      "categoryId": "4",
+      "correct_answers": [1]
+    },
+    {
+      "question_text": "Kakšno tveganje predstavljajo ugrizne rane poleg mehanskih poškodb?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Tveganje za okužbo",
+        "Povečano tveganje za zlome",
+        "Zmanjšano tveganje za okužbo",
+        "Hitrejše celjenje"
+      ],
+      "categoryId": "4",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Katero dejanje je pomembno po odstranitvi klopa?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Mesto ugriza pustimo odprto",
+        "Mesto ugriza temeljito razkužimo",
+        "Namažemo mesto ugriza z oljem",
+        "Ne storimo ničesar"
+      ],
+      "categoryId": "5",
+      "correct_answers": [1]
+    },
+    {
+      "question_text": "Kako odstranimo klopa?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "S pinceto čim bližje glavi in ga izvlečemo",
+        "Z vrtenjem pincete",
+        "Z uporabo olja",
+        "S prsti"
+      ],
+      "categoryId": "5",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Kdaj je obisk zdravnika obvezen po ugrizu klopa?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Če se pojavijo lise ali izpuščaji",
+        "Če klop ne odpade takoj",
+        "Če je klop majhen",
+        "Če mesto ugriza ne srbi"
+      ],
+      "categoryId": "5",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Kako ravnamo pri ugrizu strupene kače? (Možnih več odgovorov)",
+      "num_of_correct_answers": "2",
+      "answers": [
+        "Osebo pomirimo in preprečimo premikanje",
+        "Takoj premikamo osebo na varno",
+        "Odstranimo uro, zapestnice in prstane",
+        "Osebo damo piti veliko tekočine"
+      ],
+      "categoryId": "6",
+      "correct_answers": [0, 2]
+    },
+    {
+      "question_text": "Kaj naredimo z ugrizno rano po ugrizu strupene kače?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Hladimo z obkladki in sterilno obvežemo",
+        "Namažemo z oljem",
+        "Povijemo brez sterilne gaze",
+        "Pustimo na zraku"
+      ],
+      "categoryId": "6",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Zakaj je pomembno odstraniti nakit po ugrizu strupene kače?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Da preprečimo oteženo odstranjevanje zaradi otekanja",
+        "Da zmanjšamo tveganje za infekcijo",
+        "Da se oseba ne poškoduje",
+        "Da omogočimo hlajenje"
+      ],
+      "categoryId": "6",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Kako ravnamo z mrtvo kačo po ugrizu strupene kače?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Shranimo jo za identifikacijo",
+        "Pokopljemo jo",
+        "Zavržemo v naravi",
+        "Opečemo"
+      ],
+      "categoryId": "6",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Kateri simptom je lahko znak resne okužbe po ugrizu klopa?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Vročina in utrujenost",
+        "Srbenje",
+        "Blaga pordelost",
+        "Otekanje mesta ugriza"
+      ],
+      "categoryId": "5",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Kako ravnamo, če opazimo izpuščaje po ugrizu klopa?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Nemudoma obiščemo zdravnika",
+        "Opazujemo in ne storimo ničesar",
+        "Namažemo z oljem",
+        "Izperemo z milom in vodo"
+      ],
+      "categoryId": "5",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Katero je pravilno ravnanje pri zastrupitvi s prepovedanimi substancami? (Možnih več odgovorov)",
+      "num_of_correct_answers": "3",
+      "answers": [
+        "Pokličemo pomoč",
+        "Umirimo zastrupljenca",
+        "Odstranimo substance iz njegove bližine",
+        "Ponudimo tekočine"
+      ],
+      "categoryId": "7",
+      "correct_answers": [0, 1, 2]
+    },
+    {
+      "question_text": "Kaj storimo z nezavestnim zastrupljencem?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Postavimo v stabilni bočni položaj",
+        "Damo piti vodo",
+        "Pustimo pri miru",
+        "Poškodovanca premikamo na drugo lokacijo"
+      ],
+      "categoryId": "7",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Zakaj je pomembno spremljati vitalne funkcije pri zastrupitvi s prepovedanimi substancami?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Da zagotovimo, da oseba diha in ima utrip",
+        "Da preverimo morebitne poškodbe",
+        "Da zmanjšamo tveganje za okužbo",
+        "Da zmanjšamo tveganje za nadaljnje zastrupitve"
+      ],
+      "categoryId": "7",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Kako naj ravnamo z morebitnimi ostanki substanc po zastrupitvi?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Shranjujemo jih za identifikacijo",
+        "Zavržemo jih",
+        "Izperemo jih z vodo",
+        "Shranjujemo jih v hladilniku"
+      ],
+      "categoryId": "7",
+      "correct_answers": [0]
+    },
+    {
+      "question_text": "Kaj storimo, če je zastrupljenec nemiren in agresiven?",
+      "num_of_correct_answers": "1",
+      "answers": [
+        "Umirimo ga in preprečimo, da bi se poškodoval",
+        "Pustimo ga pri miru",
+        "Damo mu piti vodo",
+        "Pokrijemo ga z odejo"
+      ],
+      "categoryId": "7",
+      "correct_answers": [0]
+    }
+  ]
+  

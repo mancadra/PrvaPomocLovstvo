@@ -1,52 +1,58 @@
 <div class="container">
-  <div class="card">
+  <ng-container *ngIf="availableLocalHistory">
     <div class="con-history">
       <div class="history">
-        <ol *ngFor="let history of quizzesHistory; index as k">
-          <li class="li-history">
-            <div class="questions">
-              <ol *ngFor="let question of quizHistory; index as i">
-                <li class="li-question">{{ question.question_text }}</li>
-                <div class="answers">
-                  <ol *ngFor="let answer of question.answers; index as j">
-                    <li class="li-answer">
-                      <div
-                        [ngClass]="{
-                          'card-answer true-answer': correctAnswer(
-                            j,
-                            question.correct_answers
-                          ),
-                          'card-answer false-answer': !correctAnswer(
-                            j,
-                            question.correct_answers
-                          )
-                        }"
-                      >
-                        {{ answer }}
-                      </div>
-                    </li>
-                  </ol>
+        <ol *ngFor="let history of quizzesHistory.slice().reverse(); index as k">
+          <div class="card">
+            <li class="li-history">
+              <div class="meta">
+                <div class="score">
+                  <h2>Rezultat: {{ history.percents }}%</h2>
+                  <p>Točke: {{ history.points }} / {{ history.quiz.length }}</p>
                 </div>
-                <p>Izbrani odgovori: {{ question.selected_answers.length }}</p>
-                <div class="selected">
-                  <ol
-                    *ngFor="
-                      let selected of question.selected_answers;
-                      index as j
-                    "
-                  >
-                    <li class="li-selected">
-                      <div class="card-answer">
-                        {{ question.answers[selected] }}
-                      </div>
-                    </li>
-                  </ol>
-                </div>
-              </ol>
-            </div>
-          </li>
+                <span class="datum-con">Datum reševanja: <p class="datum">{{ history.date }}</p></span>
+
+              </div>
+              <div class="questions">
+                <ol *ngFor="let question of history.quiz; index as i" type="1">
+                  <li class="li-question">
+                    <div class="question">
+                      <span>{{ i + 1 }}. {{ question.question_text }}</span>
+                      <p class="points">{{ question.question_points }} / 1</p>
+                    </div>
+                    <div class="answers">
+                      <ol *ngFor="let answer of question.answers; index as j">
+                        <li class="li-answer">
+                          <div
+                            [ngClass]="{'card-answer true-answer': correctAnswer(j, question.correct_answers), 'card-answer false-answer': !correctAnswer(j, question.correct_answers)}">
+                            {{ answer }}
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                    <p>Izbrani odgovori: {{ question.selected_answers.length }}</p>
+                    <div class="selected">
+                      <ol *ngFor="let selected of question.selected_answers; index as j">
+                        <li class="li-selected">
+                          <div class="card-answer">
+                            {{ question.answers[selected] }}
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          </div>
         </ol>
       </div>
     </div>
-  </div>
+  </ng-container>
+
+  <ng-container *ngIf="!availableLocalHistory">
+    <div class="card">
+      <p>Ni zabeležene zgodovine reševanj kvizov!</p>
+    </div>
+  </ng-container>
 </div>
