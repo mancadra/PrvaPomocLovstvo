@@ -11,10 +11,12 @@ import { MatRanaComponent } from './components/materials/mat-rana/mat-rana.compo
 import { MatStrelaComponent } from './components/materials/mat-strela/mat-strela.component';
 import { MatSubstancaComponent } from './components/materials/mat-substanca/mat-substanca.component';
 import { MatTPOComponent } from './components/materials/mat-tpo/mat-tpo.component';
+import { HistoryComponent } from './components/history/history.component';
 
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'kviz', component: QuizComponent },
+  { path: 'zgodovina', component: HistoryComponent },
   {
     path: 'gradiva',
     component: MaterialsComponent,

@@ -1,64 +1,114 @@
 <div class="container">
   <div class="card">
     <ng-container *ngIf="!isClosed">
-
-      <div class="question">
-        <div class="question-card">
-          <p>{{currentQuestion + 1}}. {{ questions[currentQuestion].question_text }}</p>
+      <div *ngIf="questions[currentQuestion]">
+        <div class="question">
+          <div class="question-card">
+            <p>
+              {{ currentQuestion + 1 }}.
+              {{ questions[currentQuestion].question_text }}
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="answers">
-        <ol
-          *ngFor="let answer of questions[currentQuestion]?.answers; index as i"
-        >
-          <li (click)="answerClicked(currentQuestion + 1, i)">
-            <div
-              appChangeBg
-              [isCorrect]="
-                questions[currentQuestion].correct_answers.includes(i)
-              "
-              class="card-answer"
-            >
-              {{ answer }}
-            </div>
-          </li>
-        </ol>
-      </div>
-      <div class="progress mb-3">
-        <div
-          class="progress-bar progress-bar-striped bg-success"
-          role="progressbar"
-          [ngStyle]="{ width: progress + '%' }"
-          aria-valuenow="25"
-          aria-valuemin="0"
-          aria-valuemax="100"
-        ></div>
-      </div>
-      <div class="back-next">
-        <button
-          [disabled]="currentQuestion === 0"
-          class="btn-back-next"
-          (click)="previousQuestion()"
-        >
-          &lt;
-        </button>
-        <div class="remaining">
-          <span>{{ currentQuestion }} / {{ questions.length }}</span>
+        <div class="answers">
+          <ol
+            *ngFor="
+              let answer of questions[currentQuestion].answers;
+              index as i
+            "
+          >
+            <li (click)="answerClicked(i)">
+              <div
+                appChangeBg
+                [isCorrect]="
+                  questions[currentQuestion].correct_answers.includes(i)
+                "
+                class="card-answer"
+              >
+                {{ answer }}
+              </div>
+            </li>
+          </ol>
         </div>
-        <button class="btn-back-next" (click)="nextQuestion()">&gt;</button>
+        <div class="progress mb-3">
+          <div
+            class="progress-bar progress-bar-striped bg-success"
+            role="progressbar"
+            [ngStyle]="{ width: progress + '%' }"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+        <div class="back-next">
+          <button
+            [disabled]="currentQuestion === 0"
+            class="btn-back-next"
+            (click)="previousQuestion()"
+          >
+            &lt;
+          </button>
+          <div class="remaining">
+            <span>{{ currentQuestion + 1 }} / {{ questions.length }}</span>
+          </div>
+          <button class="btn-back-next" (click)="nextQuestion()">&gt;</button>
+        </div>
       </div>
     </ng-container>
 
     <ng-container *ngIf="isClosed">
       <div class="con-results">
         <h2>Kviz končan!</h2>
-        <hr/>
+        <hr />
         <div class="results">
-            <p>Vaš rezultat je:</p>
+          <p>Vaš rezultat je:</p>
 
-            <p>{{ percents }}%</p>
-            <p>{{ points }} / {{ questions.length }}</p>
-          </div>
+          <p>{{ percents }}%</p>
+          <p>{{ points }} / {{ questions.length }}</p>
+        </div>
+      </div>
+      <button (click)="showQuizHistory()">Zgodovina</button>
+    </ng-container>
+
+    <ng-container *ngIf="showHistory">
+      <div class="con-history">
+        <div class="questions">
+          <ol *ngFor="let question of quizHistory; index as i">
+            <li class="li-question">{{ question.question_text }}</li>
+            <div class="answers">
+              <ol *ngFor="let answer of question.answers; index as j">
+                <li class="li-answer">
+                  <div
+                    [ngClass]="{
+                      'card-answer true-answer': correctAnswer(
+                        j,
+                        question.correct_answers
+                      ),
+                      'card-answer false-answer': !correctAnswer(
+                        j,
+                        question.correct_answers
+                      )
+                    }"
+                  >
+                    {{ answer }}
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <p>Izbrani odgovori: {{ question.selected_answers.length }}</p>
+            <div class="selected">
+              <ol
+                *ngFor="let selected of question.selected_answers; index as j"
+              >
+                <li class="li-selected">
+                  <div class="card-answer">
+                    {{ question.answers[selected] }}
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </ol>
+        </div>
       </div>
     </ng-container>
   </div>

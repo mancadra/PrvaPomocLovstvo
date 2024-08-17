@@ -26,22 +26,50 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrl: './quiz.component.scss',
 })
 export class QuizComponent implements OnInit {
+  allQuestions: Question[] = [];
   questions: Question[] = [];
+  quizHistory: any[] = [];
+  quizzesHistory: any[] = [];
+  selectedAnswers: any[] = [];
   public currentQuestion: number = 0;
   public points: number = 0;
   correctAnswers: number = 0;
   inCorrectAnswer: number = 0;
   public percents: number = 0;
+  quizLength: number = 3;
   intervals$: any;
   progress: string = '0';
   isClosed: boolean = false;
+  showHistory: boolean = false;
   public nrCorrectAnswers = 0; // meant for the querstions with multiple choices
-  constructor(private questionService: QuestionService, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private questionService: QuestionService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.questionService.getQuestions().subscribe((questions) => {
-      this.questions = questions;
-      console.log(questions);
+      this.allQuestions = questions;
+      this.questions = [];
+
+      let i: number = 0;
+      let selectedElements: number[] = [];
+      while (
+        i < this.quizLength &&
+        selectedElements.length < this.allQuestions.length
+      ) {
+        const randIx: number = Math.floor(
+          Math.random() * this.allQuestions.length
+        );
+        if (!selectedElements.includes(randIx)) {
+          selectedElements.push(randIx);
+          i++;
+          this.questions.push(this.allQuestions[randIx]);
+        }
+      }
+      i = 0;
+      selectedElements = [];
+      console.log('Questions: ', this.questions.length, this.questions);
     });
   }
 
@@ -58,36 +86,45 @@ export class QuizComponent implements OnInit {
   }
 
   nextQuestion() {
-    if (this.currentQuestion === this.questions.length) {
+    this.setQuestionHistory(this.currentQuestion, this.selectedAnswers);
+    if (this.currentQuestion + 1 === this.questions.length) {
+      this.saveQuizHistory();
       this.percents = (this.points * 100) / this.questions.length;
       this.isClosed = true;
-      this.cdr.detectChanges();
     }
-    if (this.nrCorrectAnswers == this.questions[this.currentQuestion].num_of_correct_answers) {
-      console.log("Moved to another question", )
+    if (
+      this.nrCorrectAnswers ==
+      this.questions[this.currentQuestion].num_of_correct_answers
+    ) {
+      console.log('Moved to another question');
       this.points++;
       this.correctAnswers++;
     }
+    this.selectedAnswers = [];
     this.currentQuestion++;
     this.nrCorrectAnswers = 0;
-    console.log(this.points)
+    console.log(this.points);
   }
 
   previousQuestion() {
-    if (this.nrCorrectAnswers == this.questions[this.currentQuestion].num_of_correct_answers) {
-      console.log("Moved to another question", )
+    if (
+      this.nrCorrectAnswers ==
+      this.questions[this.currentQuestion].num_of_correct_answers
+    ) {
+      console.log('Moved to another question');
       this.points++;
       this.correctAnswers++;
     }
     this.currentQuestion--;
     this.nrCorrectAnswers = 0;
-    console.log(this.points)
+    console.log(this.points);
   }
 
-  answerClicked(answerIx: number, option: any) {
+  answerClicked(option: any) {
+    this.selectedAnswers.push(option);
     if (this.questions[this.currentQuestion].correct_answers.includes(option)) {
       this.nrCorrectAnswers++;
-      console.log(this.nrCorrectAnswers)
+      console.log(this.nrCorrectAnswers);
     }
   }
 
@@ -98,10 +135,56 @@ export class QuizComponent implements OnInit {
     this.inCorrectAnswer = 0;
     this.percents = 0;
     this.progress = '0';
-    this.nrCorrectAnswers = 0; // meant for the querstions with multiple choices
+    this.nrCorrectAnswers = 0; // meant for the questions with multiple choices
+    this.quizHistory = [];
+    this.showHistory = false;
+    this.selectedAnswers = [];
   }
 
-  detectChanges() {
-    this.cdr.detectChanges();
+  correctAnswer(index: number, correct_answers: number[]) {
+    console.log('Correct answers: ', correct_answers);
+    if (correct_answers.includes(index)) {
+      console.log('TRue');
+      return true;
+    }
+    console.log('FAlse');
+    return false;
+  }
+
+  setQuestionHistory(ix: number, selectedOption: any) {
+    const questionHistory = {
+      question_text: this.questions[ix].question_text,
+      selected_answers: selectedOption,
+      answers: this.questions[ix].answers,
+      correct_answers: this.questions[ix].correct_answers,
+    };
+    console.log('QuestionHistory: ', questionHistory);
+    this.quizHistory[ix] = questionHistory;
+  }
+
+  saveQuizHistory() {
+    localStorage.setItem('quizHistory', JSON.stringify(this.quizHistory));
+
+    const existingHistory = localStorage.getItem('quizzesHistory');
+    let quizzesHistory = existingHistory ? JSON.parse(existingHistory) : [];
+    quizzesHistory.push(this.quizHistory);
+    localStorage.setItem('quizzesHistory', JSON.stringify(quizzesHistory));
+  }
+
+  showQuizHistory() {
+    this.showHistory = true;
+    const savedHistory = localStorage.getItem('quizHistory');
+    if (savedHistory) {
+      this.quizHistory = JSON.parse(savedHistory);
+      console.log('Quiz History:', this.quizHistory);
+    }
+  }
+
+  showQuizzesHistory() {
+    const savedHistory = localStorage.getItem('quizzesHistory');
+    if (savedHistory) {
+      this.quizzesHistory = JSON.parse(savedHistory);
+      console.log('Quizzes History:', this.quizzesHistory);
+    }
   }
 }
