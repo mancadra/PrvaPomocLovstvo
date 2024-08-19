@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Question } from './question';
 import { signal } from '@angular/core';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class QuestionService {
-  private url = 'http://localhost:5200';
+  private url = environment.apiUrl;
   questions: Question[] = [];
 
   constructor(private httpClient: HttpClient) {}
