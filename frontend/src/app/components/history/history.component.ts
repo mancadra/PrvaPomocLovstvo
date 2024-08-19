@@ -26,7 +26,6 @@ export class HistoryComponent implements OnInit {
       const savedHistory = localStorage.getItem('quizzesHistory');
       if (savedHistory) {
         this.quizzesHistory = JSON.parse(savedHistory);
-        console.log('Quizzes History:', this.quizzesHistory);
       } else {
         this.availableLocalHistory = false;
       }

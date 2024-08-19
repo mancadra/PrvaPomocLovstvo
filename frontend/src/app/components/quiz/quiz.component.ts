@@ -36,7 +36,7 @@ export class QuizComponent implements OnInit {
   correctAnswers: number = 0;
   inCorrectAnswer: number = 0;
   public percents: number = 0;
-  quizLength: number = 3;
+  quizLength: number = 20;
   intervals$: any;
   progress: string = '0';
   isClosed: boolean = false;
@@ -70,7 +70,6 @@ export class QuizComponent implements OnInit {
       }
       i = 0;
       selectedElements = [];
-      console.log('Questions: ', this.questions.length, this.questions);
     });
   }
 
@@ -87,10 +86,7 @@ export class QuizComponent implements OnInit {
   }
 
   nextQuestion() {
-    console.log("Selected answers: ", this.selectedAnswers, this.questions[this.currentQuestion].correct_answers);
-
     if (this.isCorrectAnswer(this.questions[this.currentQuestion].correct_answers)) {
-      console.log('Correct answer');
       this.points++;
       this.currentQuestionPoints = 1;
       this.correctAnswers++;
@@ -106,7 +102,6 @@ export class QuizComponent implements OnInit {
     this.selectedAnswers = [];
     this.currentQuestion++;
     this.nrCorrectAnswers = 0;
-    console.log(this.points);
   }
 
   previousQuestion() {
@@ -114,13 +109,11 @@ export class QuizComponent implements OnInit {
       this.nrCorrectAnswers ==
       this.questions[this.currentQuestion].num_of_correct_answers
     ) {
-      console.log('Moved to another question');
       this.points++;
       this.correctAnswers++;
     }
     this.currentQuestion--;
     this.nrCorrectAnswers = 0;
-    console.log(this.points);
   }
 
   answerClicked(option: any) {
@@ -147,12 +140,9 @@ export class QuizComponent implements OnInit {
   }
 
   correctAnswer(index: number, correct_answers: number[]) {
-    console.log('Correct answers: ', correct_answers);
     if (correct_answers.includes(index)) {
-      console.log('TRue');
       return true;
     }
-    console.log('FAlse');
     return false;
   }
 
@@ -172,7 +162,6 @@ export class QuizComponent implements OnInit {
       correct_answers: this.questions[ix].correct_answers,
       question_points: this.currentQuestionPoints,
     };
-    console.log('QuestionHistory: ', questionHistory);
     this.quizHistory[ix] = questionHistory;
   }
 
@@ -183,7 +172,6 @@ export class QuizComponent implements OnInit {
     const day = String(currentDate.getDate()).padStart(2, '0');
 
     const formattedDate = `${day}. ${month}. ${year}`;
-    console.log("DATUM: ", formattedDate);
     return formattedDate;
   }
 
@@ -209,7 +197,6 @@ export class QuizComponent implements OnInit {
     const savedHistory = localStorage.getItem('quizHistory');
     if (savedHistory) {
       this.quizHistory = JSON.parse(savedHistory);
-      console.log('Quiz History:', this.quizHistory);
     }
   }
 
@@ -217,7 +204,6 @@ export class QuizComponent implements OnInit {
     const savedHistory = localStorage.getItem('quizzesHistory');
     if (savedHistory) {
       this.quizzesHistory = JSON.parse(savedHistory);
-      console.log('Quizzes History:', this.quizzesHistory);
     }
   }
 }
