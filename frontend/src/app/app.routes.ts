@@ -12,11 +12,13 @@ import { MatStrelaComponent } from './components/materials/mat-strela/mat-strela
 import { MatSubstancaComponent } from './components/materials/mat-substanca/mat-substanca.component';
 import { MatTPOComponent } from './components/materials/mat-tpo/mat-tpo.component';
 import { HistoryComponent } from './components/history/history.component';
+import { VideoGradivaComponent } from './components/video-gradiva/video-gradiva.component';
 
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'kviz', component: QuizComponent },
   { path: 'zgodovina', component: HistoryComponent },
+  { path: 'video_gradiva', component: VideoGradivaComponent},
   {
     path: 'gradiva',
     component: MaterialsComponent,

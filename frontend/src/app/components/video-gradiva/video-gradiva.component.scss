@@ -1,0 +1,46 @@
+.video-con {
+  display: flex;
+  flex-direction: row;
+}
+
+.video {
+  width: 100%;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+video {
+  width: 90%;
+  height: auto;
+}
+
+
+.card {
+  background: rgb(187, 187, 187, 0.2);
+  margin: 3% 20% 0 20%;
+  padding: 3% 1%;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  padding: 0 5%;
+  font-weight: 500;
+}
+
+
+//RESPONSIVE DESIGN
+@media (max-width: 992px) {
+  .container {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .card {
+    padding: 5% 2%;
+    margin: 10% 5%;
+  }
+}
